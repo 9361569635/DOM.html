@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="set(event)">
+        <input type="text" placeholder="name" id="na" required>
+        <input type="number" placeholder="number" id="ph">
+        <input type="email" placeholder="email" id="em" required>
+        <input type="password" placeholder="password" id="ps" required>
+        <button>submit</button>
+    </form>
+    <script>
+        function set(event){
+            event.preventDefault(event);
+            let name=document.getElementById("na").value;
+            let number=document.getElementById("ph").value;
+            if(number.startsWith("+91") === false){
+    number = "+91" + number;
+  }
+            let email=document.getElementById("em").value;
+            let password=document.getElementById("ps").value;
+
+            localStorage.setItem("name",name);
+            localStorage.setItem("number",number);
+            localStorage.setItem("email",email);
+            localStorage.setItem("password",password);
+        }
+    </script>
+</body>
+</html>
